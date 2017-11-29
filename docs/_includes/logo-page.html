@@ -80,17 +80,49 @@
             </div>
         </nav>
     </div>
-    <div class="scala-logo-container">
-        <p><img src="{{ site.baseurl }}/images/scala-logo.svg" alt="image" /></p>
-        <div class="centered-subtitle">
-            <h1 id="dotty">Dotty</h1>
-            <p>A next generation compiler for Scala</p>
-            <a href="#getting-started">
-                <i id="scroll-down-arrow" class="animated infinite pulse material-icons">
-                    expand_more
-                </i>
-            </a>
-        </div>
+    <div>
+      <pre class="scala">
+      object Union {
+        case class A()
+        case class B()
+        case class C()
+        
+        def union(ab: A | B) = {
+          ab match {
+            case A() => "Got A"
+            case B() => "Got B"
+          }
+        }
+        
+        def test = {
+          println("== Union ==")
+          println(union(A()))
+          println(union(B()))
+          
+          // println(union(C()))
+          // Does not compile:
+          // found:    Union.C
+          // required: Union.A | Union.B
+        }
+      }
+
+      object Main {
+        def main(args: Array[String]): Unit = {
+          Union.test
+        }
+      }
+      </pre>        
     </div>
 </div>
 
+<script src="https://scastie.scala-lang.org/embedded.js"></script>
+<script>
+window.addEventListener('load', function(event) {
+  com.olegych.scastie.client.ScastieMain.embedded(
+    ".scala",
+    {
+      targetType: "dotty"
+    }
+  );
+}, false);
+</script>

@@ -1,0 +1,33 @@
+## Intersection
+
+<pre>
+object Intersection {
+  trait A
+  trait B
+  
+  class AB extends A with B
+  class BA extends B with A
+  
+  // intersection types are commutative
+  def intersection1(x: A & B): Unit = ()
+  intersection1(new AB)
+  intersection1(new BA)
+  
+  def intersection2(x: B & A): Unit = ()
+  intersection2(new AB)
+  intersection2(new BA)
+}
+</pre>
+
+
+## Type Lambdas
+
+## Literal Singleton Types
+
+
+Trait parameters
+@static methods and fields
+Option-less pattern matching
+Automatic tupling of function parameters
+Multiversal equality
+Implicit function types

@@ -1,0 +1,12 @@
+.scastie .app.light .editor-container .switcher-show,
+.scastie .app.light .embedded-menu > * {
+  background-color: rgb(202, 68, 94);  
+}
+
+.scastie .app.light .embedded-menu > * {
+  width: 140px;
+}
+
+.scastie .editor-container .console-container .switcher-show {
+  display: none !important;
+}
